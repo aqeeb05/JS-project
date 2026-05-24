@@ -1,5 +1,7 @@
 //this is after git
 
+// this file is in gitignore
+
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
