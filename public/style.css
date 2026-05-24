@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Use min-height so it can expand */
+    padding: 40px 0;   /* Adds space at top and bottom so it's not touching the edges */
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h2 { margin-bottom: 10px; color: #333; }
+p { color: #666; font-size: 14px; margin-bottom: 25px; }
+
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+label { display: block; font-size: 13px; margin-bottom: 5px; color: #555; }
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+input:focus { border-color: #2563eb; }
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+/* Container for the input and icon */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure the input has space for the icon on the right */
+.password-wrapper input {
+    padding-right: 40px; 
+}
+
+/* Position the icon absolutely inside the wrapper */
+.toggle-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+.toggle-icon:hover {
+    opacity: 1;
+}
+
+.login-btn:hover { background: #1d4ed8; }
+
+#message { margin-top: 15px; font-size: 14px; }
+
+.show-password-container {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.show-password-container input {
+    width: auto;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#signupMessage {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Add this to style.css to style the 'Back to Login' link */
+a {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Fix for the checkbox alignment */
+.show-password-container {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between checkbox and text */
+    margin-top: 10px;
+}

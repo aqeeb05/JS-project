@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Project Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box" style="max-width: 500px; text-align: left;">
+            <h1 id="welcomeHeader" style="text-align: center; margin-bottom: 20px; color: #2563eb;">Welcome!</h1>
+            
+            <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <h3 style="margin-bottom: 15px; border-bottom: 2px solid #2563eb; display: inline-block;">Your Profile</h3>
+                
+                <p style="margin: 10px 0;"><strong>Full Name:</strong> <span id="dispFullName"></span></p>
+                <p style="margin: 10px 0;"><strong>Username:</strong> @<span id="dispUsername"></span></p>
+                <p style="margin: 10px 0;"><strong>Email:</strong> <span id="dispEmail"></span></p>
+            </div>
+
+            <button onclick="logout()" class="login-btn" style="background: #ef4444; margin-top: 25px;">Logout</button>
+        </div>
+    </div>
+
+  <script>
+    // 1. Get the data from storage
+    const fName = localStorage.getItem('firstName');
+    const lName = localStorage.getItem('lastName');
+    const uName = localStorage.getItem('username');
+    const uEmail = localStorage.getItem('email');
+
+    // 2. Security Check: If not logged in, kick them out
+    if (!uEmail) {
+        window.location.href = 'index.html';
+    }
+
+    // 3. Fill the page
+    document.getElementById('welcomeHeader').innerText = `Welcome, ${fName}!`;
+    document.getElementById('dispFullName').innerText = `${fName} ${lName}`;
+    document.getElementById('dispUsername').innerText = uName;
+    document.getElementById('dispEmail').innerText = uEmail;
+
+    function logout() {
+        localStorage.clear();
+        window.location.href = 'index.html';
+    }
+</script>
+</body>
+</html>
