@@ -1,65 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Portal | Sign Up</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="login-container">
-        <div class="login-box">
-            <h2>Create Account</h2>
-            <p>Join the project management team.</p>
-            
-            <form id="signupForm">
-                <div class="input-group">
-                    <label>First Name</label>
-                    <input type="text" id="firstName" required placeholder="john">
-                </div>
+      <div class="login-box">
+        <h2>Create Account</h2>
+        <p>Join the project management team.</p>
 
-                <div class="input-group">
-                    <label>Last Name</label>
-                    <input type="text" id="lastName" required placeholder="shark">
-                </div>
+        <form id="signupForm">
+          <div class="input-group">
+            <label>First Name</label>
+            <input type="text" id="firstName" required placeholder="john" />
+          </div>
 
-                <div class="input-group">
-                    <label>Username</label>
-                    <input type="text" id="username" required placeholder="john-123">
-                </div>
+          <div class="input-group">
+            <label>Last Name</label>
+            <input type="text" id="lastName" required placeholder="shark" />
+          </div>
 
-                <div class="input-group">
-                    <label>Email Address</label>
-                    <input type="email" id="signupEmail" required placeholder="john@email.com">
-                </div>
+          <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="username" required placeholder="john-123" />
+          </div>
 
-                <div class="input-group">
-                    <label>Password</label>
-                    <div class="password-wrapper">
-                        <input type="password" id="signupPassword" class="pwd-field" required placeholder="••••••••">
-                    </div>
-                </div>
+          <div class="input-group">
+            <label>Email Address</label>
+            <input
+              type="email"
+              id="signupEmail"
+              required
+              placeholder="john@email.com"
+            />
+          </div>
 
-                <div class="input-group">
-                    <label>Confirm Password</label>
-                    <div class="password-wrapper">
-                        <input type="password" id="confirmPassword" class="pwd-field" required placeholder="••••••••">
-                    </div>
-                </div>
+          <div class="input-group">
+            <label>Password</label>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                id="signupPassword"
+                class="pwd-field"
+                required
+                placeholder="••••••••"
+              />
+            </div>
+          </div>
 
-                <div class="show-password-container">
-                    <input type="checkbox" id="showPwdCheckbox"> 
-                    <label for="showPwdCheckbox" style="display:inline; font-size: 12px;">Show Passwords</label>
-                </div>
+          <div class="input-group">
+            <label>Confirm Password</label>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                id="confirmPassword"
+                class="pwd-field"
+                required
+                placeholder="••••••••"
+              />
+            </div>
+          </div>
 
-                <button type="submit" class="login-btn">Register</button>
-            </form>
+          <div class="show-password-container">
+            <input type="checkbox" id="showPwdCheckbox" />
+            <label
+              for="showPwdCheckbox"
+              style="display: inline; font-size: 12px"
+              >Show Passwords</label
+            >
+          </div>
 
-            <p id="signupMessage"></p>
-            <p><a href="index.html">Back to Login</a></p>
-        </div>
+          <button type="submit" class="login-btn">Register</button>
+        </form>
+
+        <p id="signupMessage"></p>
+        <p><a href="index.html">Back to Login</a></p>
+      </div>
     </div>
 
     <script src="signup.js"></script>
-</body>
+  </body>
 </html>
