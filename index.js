@@ -1,20 +1,28 @@
-//this is after git
-
-// this file is in gitignore
-
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+
+const dns = require('node:dns/promises');
+dns.setServers(['8.8.8.8', '1.1.1.1']);
+require('dotenv').config();
+
 const { connectToMongoDB } = require("./connect");
 const { restrictToLoggedinUserOnly, checkAuth } = require("./middlewares/auth");
 const URL = require("./models/url.model.js");
+const mongoose = require('mongoose');
 
 const urlRoute = require("./routes/url.route.js");
-const staticRoute = require("./routes/staticRouter");
+const staticRoute = require("./routes/staticRouter.js");
 const userRoute = require("./routes/user.route.js");
 
 const app = express();
-const PORT = 8001;
+const PORT = 3000;
+
+
+connectToMongoDB(process.env.MONGODB ?? "mongodb+srv://aqeeb05:aqeeb005@backend-db.10dc9ek.mongodb.net/?appName=backend-DB").then(() =>
+  console.log("Mongodb connected"))
+  .catch((err) => console.log("Database Connection Error:", err))
+  ;
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
@@ -39,32 +47,11 @@ app.get("/url/:shortId", async (req, res) => {
           timestamp: Date.now(),
         },
       },
-    }
+    },
+    { new: true }
   );
   if (!entry) return res.status(404).send("URL not found");
-  res.redirect(entry.redirectURL);
+res.redirect(entry.redirectURL);
 });
 
-// 1. Changed localhost to 127.0.0.1
-// 2. Moved app.listen inside the .then() block
-// connectToMongoDB(process.env.MONGODB ?? "mongodb://127.0.0.1:27017/short-url")
-//   .then(() => {
-//     console.log("Mongodb connected");
-//     app.listen(PORT, () => console.log(`Server Started at PORT:${PORT}`));
-//   })
-//   .catch((err) => {
-//     console.error("Failed to connect to MongoDB", err);
-//   });
-
-
-  mongoose.connect("mongodb+srv://aqeeb05:aqeeb005@backend-db.10dc9ek.mongodb.net/?appName=backend-DB")
-      .then(() => {
-          console.log("connected to database");
-          app.listen(PORT, () => {
-              console.log(`Server running at http://localhost:${PORT}`);
-          })
-      })
-      .catch((error) => {
-          console.log("connection failed", error);
-      });
-  
+app.listen(PORT, () => console.log(`Server Started at PORT:${PORT}`));

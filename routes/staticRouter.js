@@ -1,17 +1,22 @@
 const express = require("express");
-const URL=require('../models/url.model.js')
+const URL = require('../models/url.model.js')
 
 const router = express.Router();
 
-router.get('/', async(req,res)=>{
-    const allurls= await URL.find({});
-    return res.render("home",{
-        urls:allurls,
+router.get('/', async (req, res) => {
+    if (!req.user) return res.redirect('/login');
+    const allurls = await URL.find({ createdBy: req.user._id });
+    return res.render("home", {
+        urls: allurls,
     });
 });
 
-router.get('/dsignup',(req,res)=>{
+router.get('/signup', (req, res) => {
     return res.render("signup");
 });
 
-module.exports= router;
+router.get('/login', (req, res) => {
+    return res.render("login");
+});
+
+module.exports = router;
